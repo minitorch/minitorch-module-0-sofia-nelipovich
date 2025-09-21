@@ -21,6 +21,15 @@ class Graph:
 
 
 def simple(N):
+    """
+    Generate a simple dataset, where the class label is determined by whether x_1 < 0.5.
+
+    Args:
+        N (int): Number of samples.
+
+    Returns:
+        Graph: Dataset with features X and labels y, where y = 1 if x_1 < 0.5 else 0.
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -30,6 +39,15 @@ def simple(N):
 
 
 def diag(N):
+    """
+    Generate a diagonal dataset, where the class label is determined by x_1 + x_2 < 0.5.
+
+    Args:
+        N (int): Number of samples.
+
+    Returns:
+        Graph: Dataset with features X and labels y, where y = 1 if x_1 + x_2 < 0.5 else 0.
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -39,6 +57,15 @@ def diag(N):
 
 
 def split(N):
+    """
+    Generate a split dataset, where the class label is determined by the position of x_1.
+
+    Args:
+        N (int): Number of samples.
+
+    Returns:
+        Graph: Dataset with features X and labels y, where y = 1 if x_1 < 0.2 or x_1 > 0.8 else 0.
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -48,6 +75,15 @@ def split(N):
 
 
 def xor(N):
+    """
+    Generate a XOR-like dataset, where the class label is determined by exclusive regions in the feature space.
+
+    Args:
+        N (int): Number of samples.
+
+    Returns:
+        Graph: Dataset with features X and labels y, where y = 1 if (x_1 < 0.5 and x_2 > 0.5) or (x_1 > 0.5 and x_2 < 0.5), else 0.
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -57,6 +93,15 @@ def xor(N):
 
 
 def circle(N):
+    """
+    Generate a circular boundary dataset. Class label is determined by distance from the center.
+
+    Args:
+        N (int): Number of samples.
+
+    Returns:
+        Graph: Dataset with features X and labels y, where y = 1 if point lies outside a small circle at the center, else 0.
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -67,7 +112,15 @@ def circle(N):
 
 
 def spiral(N):
+    """
+    Generate a spiral dataset, with two arms based on parametric equations.
 
+    Args:
+        N (int): Number of samples (must be even).
+
+    Returns:
+        Graph: Dataset with features X and labels y, where y = 0 for first half of points (one arm), 1 for the second half (second arm).
+    """
     def x(t):
         return t * math.cos(t) / 20.0
 
@@ -79,6 +132,7 @@ def spiral(N):
         (N // 2))) + 0.5) for i in range(5 + 0, 5 + N // 2)]
     y2 = [0] * (N // 2) + [1] * (N // 2)
     return Graph(N, X, y2)
+
 
 
 datasets = {'Simple': simple, 'Diag': diag, 'Split': split, 'Xor': xor,
