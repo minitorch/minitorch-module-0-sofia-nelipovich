@@ -83,7 +83,7 @@ def neg(x: float) -> float:
     Returns:
         float: The negated value of x.
     """
-    return -x
+    return -1.0 * x
 
 
 def lt(x: float, y: float) -> bool:
@@ -236,7 +236,7 @@ def inv_back(x: float, d: float) -> float:
     Returns:
         float: The result of backpropagating through the inverse.
     """
-    return -d / (x * x)
+    return -1.0 * d / (x * x)
 
 
 def relu_back(x: float, d: float) -> float:
