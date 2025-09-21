@@ -6,3 +6,29 @@
 * Docs: https://minitorch.github.io/
 
 * Overview: https://minitorch.github.io/module0/module0/
+
+## Task 0.5
+
+Simple Dataset
+
+![](./img/1.png)
+
+Diag Dataset
+
+![](./img/2.png)
+
+Split Dataset
+
+![](./img/3.png)
+
+XOR Dataset
+
+![](./img/4.png)
+
+Circle Dataset
+
+![](./img/5.png)
+
+Spiral Dataset
+
+![](./img/6.png)
